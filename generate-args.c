@@ -17,6 +17,8 @@
 #include "tables.h"
 #include "trinity.h"	// num_online_cpus
 
+extern struct itimerval* set_itimerval_arg();
+
 static unsigned int get_cpu(void)
 {
 	int i;
@@ -379,6 +381,9 @@ static unsigned long fill_arg(struct syscallrecord *rec, unsigned int argnum)
 
 	case ARG_SOCKETINFO:
 		return (unsigned long) get_rand_socketinfo();
+
+	case ARG_ITIMERVAL:
+		return (unsigned long) set_itimerval_arg();
 	}
 
 	BUG("unreachable!\n");
@@ -388,6 +393,7 @@ void generic_sanitise(struct syscallrecord *rec)
 {
 	struct syscallentry *entry;
 	unsigned int call;
+	struct itimerval* p;
 
 	call = rec->nr;
 	entry = syscalls[call].entry;

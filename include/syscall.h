@@ -56,6 +56,7 @@ enum argtype {
 	ARG_SOCKADDRLEN,
 	ARG_MMAP,
 	ARG_SOCKETINFO,
+	ARG_ITIMERVAL,
 };
 
 struct arglist {
