@@ -51,7 +51,8 @@ struct syscallentry syscall_sigaction = {
 	.sanitise = sanitise_rt_sigaction,
 	.arg1name = "sig",
 	.arg2name = "act",
-	.arg2type = ARG_ADDRESS,
+	.arg2type = ARG_SIGACTION,
 	.arg3name = "oact",
+	.arg3type = ARG_SIGACTION,
 	.flags = AVOID_SYSCALL,
 };

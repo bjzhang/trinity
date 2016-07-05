@@ -7,7 +7,7 @@ struct syscallentry syscall_gettimeofday = {
 	.name = "gettimeofday",
 	.num_args = 2,
 	.arg1name = "tv",
-	.arg1type = ARG_ADDRESS,
+	.arg1type = ARG_TIMEVAL,
 	.arg2name = "tz",
-	.arg2type = ARG_ADDRESS,
+	.arg2type = ARG_TIMEZONE,
 };

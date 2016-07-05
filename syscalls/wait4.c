@@ -13,5 +13,5 @@ struct syscallentry syscall_wait4 = {
 	.arg2type = ARG_ADDRESS,
 	.arg3name = "options",
 	.arg4name = "ru",
-	.arg4type = ARG_ADDRESS,
+	.arg4type = ARG_RUSAGE,
 };

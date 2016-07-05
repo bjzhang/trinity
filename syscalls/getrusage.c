@@ -8,5 +8,5 @@ struct syscallentry syscall_getrusage = {
 	.num_args = 2,
 	.arg1name = "who",
 	.arg2name = "ru",
-	.arg2type = ARG_ADDRESS,
+	.arg2type = ARG_RUSAGE,
 };

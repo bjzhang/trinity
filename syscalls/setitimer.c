@@ -9,7 +9,9 @@ struct syscallentry syscall_setitimer = {
 	.num_args = 3,
 	.arg1name = "which",
 	.arg2name = "value",
-	.arg2type = ARG_ADDRESS,
+//	.arg2type = ARG_ADDRESS,
+	.arg2type = ARG_ITIMERVAL,
 	.arg3name = "ovalue",
-	.arg3type = ARG_ADDRESS,
+	.arg3type = ARG_ITIMERVAL,
+//	.arg3type = ARG_ADDRESS,
 };

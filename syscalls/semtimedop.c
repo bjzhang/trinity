@@ -9,8 +9,8 @@ struct syscallentry syscall_semtimedop = {
 	.num_args = 4,
 	.arg1name = "semid",
 	.arg2name = "tsops",
-	.arg2type = ARG_ADDRESS,
+	.arg2type = ARG_SEMBUF,
 	.arg3name = "nsops",
 	.arg4name = "timeout",
-	.arg4type = ARG_ADDRESS,
+	.arg4type = ARG_TIMESPEC,
 };

@@ -85,13 +85,14 @@ static void post_ppoll(struct syscallrecord *rec)
 
 struct syscallentry syscall_ppoll = {
 	.name = "ppoll",
-	.num_args = 5,
+	.num_args = 4,
 	.arg1name = "ufds",
+	.arg1type = ARG_POLLFD,
 	.arg2name = "nfds",
 	.arg3name= "tsp",
+	.arg3type = ARG_TIMESPEC,
 	.arg4name = "sigmask",
 	.arg4type = ARG_ADDRESS,
-	.arg5name = "sigsetsize",
 	.flags = NEED_ALARM,
 	.sanitise = sanitise_ppoll,
 	.post = post_ppoll,

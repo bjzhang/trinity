@@ -17,6 +17,6 @@ struct syscallentry syscall_mq_timedreceive = {
 	.arg4name = "u_msg_prio",
 	.arg4type = ARG_ADDRESS,
 	.arg5name = "u_abs_timeout",
-	.arg5type = ARG_ADDRESS,
+	.arg5type = ARG_TIMESPEC,
 	.flags = NEED_ALARM,
 };

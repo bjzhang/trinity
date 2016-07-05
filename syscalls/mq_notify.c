@@ -9,6 +9,6 @@ struct syscallentry syscall_mq_notify = {
 	.arg1name = "mqdes",
 	.arg1type = ARG_FD,
 	.arg2name = "u_notification",
-	.arg2type = ARG_ADDRESS,
+	.arg2type = ARG_SIGEVENT,
 	.flags = NEED_ALARM,
 };

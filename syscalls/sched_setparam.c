@@ -9,5 +9,5 @@ struct syscallentry syscall_sched_setparam = {
 	.arg1name = "pid",
 	.arg1type = ARG_PID,
 	.arg2name = "param",
-	.arg2type = ARG_ADDRESS,
+	.arg2type = ARG_SCHED_PARAM,
 };

@@ -29,9 +29,9 @@ struct syscallentry syscall_clock_nanosleep = {
 	.arg2type = ARG_LIST,
 	.arg2list = ARGLIST(clock_nanosleep_flags),
 	.arg3name = "rqtp",
-	.arg3type = ARG_ADDRESS,
+	.arg3type = ARG_TIMESPEC,
 	.arg4name = "rmtp",
-	.arg4type = ARG_ADDRESS,
+	.arg4type = ARG_TIMESPEC,
 	.rettype = RET_ZERO_SUCCESS,
 	.flags = NEED_ALARM,
 };

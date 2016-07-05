@@ -8,6 +8,6 @@ struct syscallentry syscall_semop = {
 	.num_args = 3,
 	.arg1name = "semid",
 	.arg2name = "tsops",
-	.arg2type = ARG_ADDRESS,
+	.arg2type = ARG_SEMBUF,
 	.arg3name = "nsops",
 };

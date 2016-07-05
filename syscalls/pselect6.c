@@ -17,7 +17,7 @@ struct syscallentry syscall_pselect6 = {
 	.arg4name = "exp",
 	.arg4type = ARG_ADDRESS,
 	.arg5name = "tsp",
-	.arg5type = ARG_ADDRESS,
+	.arg5type = ARG_TIMESPEC,
 	.arg6name = "sig",
 	.arg6type = ARG_ADDRESS,
 };

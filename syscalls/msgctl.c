@@ -19,5 +19,5 @@ struct syscallentry syscall_msgctl = {
 	.arg2type = ARG_OP,
 	.arg2list = ARGLIST(msgctl_cmds),
 	.arg3name = "buf",
-	.arg3type = ARG_ADDRESS,
+	.arg3type = ARG_MSQID_DS,
 };

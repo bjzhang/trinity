@@ -18,5 +18,5 @@ struct syscallentry syscall_shmctl = {
 	.arg2type = ARG_OP,
 	.arg2list = ARGLIST(shmctl_ops),
 	.arg3name = "buf",
-	.arg3type = ARG_ADDRESS,
+	.arg3type = ARG_MSQID_DS,
 };

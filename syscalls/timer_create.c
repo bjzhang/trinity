@@ -10,7 +10,7 @@ struct syscallentry syscall_timer_create = {
 	.num_args = 3,
 	.arg1name = "which_clock",
 	.arg2name = "timer_event_spec",
-	.arg2type = ARG_ADDRESS,
+	.arg2type = ARG_SIGEVENT,
 	.arg3name = "create_timer_id",
 	.arg3type = ARG_ADDRESS,
 };

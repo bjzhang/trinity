@@ -9,7 +9,7 @@ struct syscallentry syscall_statfs = {
 	.arg1name = "pathname",
 	.arg1type = ARG_PATHNAME,
 	.arg2name = "buf",
-	.arg2type = ARG_ADDRESS,
+	.arg2type = ARG_STATFS,
 };
 
 /*
@@ -23,5 +23,5 @@ struct syscallentry syscall_statfs64 = {
 	.arg1type = ARG_PATHNAME,
 	.arg2name = "sz",
 	.arg3name = "buf",
-	.arg3type = ARG_ADDRESS,
+	.arg3type = ARG_STATFS,
 };

@@ -8,6 +8,7 @@ struct syscallentry syscall_getitimer = {
 	.num_args = 2,
 	.arg1name = "which",
 	.arg2name = "value",
-	.arg2type = ARG_ADDRESS,
+//	.arg2type = ARG_ADDRESS,
+	.arg2type = ARG_ITIMERVAL,
 	.rettype = RET_ZERO_SUCCESS,
 };

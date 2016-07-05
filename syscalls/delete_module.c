@@ -10,7 +10,7 @@ struct syscallentry syscall_delete_module = {
 	.name = "delete_module",
 	.num_args = 2,
 	.arg1name = "name_user",
-	.arg1type = ARG_ADDRESS,
+	.arg1type = ARG_PATHNAME,
 	.arg2name = "flags",
 	.rettype = RET_ZERO_SUCCESS,
 };

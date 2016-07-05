@@ -75,7 +75,7 @@ struct syscallentry syscall_recvmsg = {
 	.arg1name = "fd",
 	.arg1type = ARG_SOCKETINFO,
 	.arg2name = "msg",
-	.arg2type = ARG_ADDRESS,
+	.arg2type = ARG_MSGHDR,
 	.arg3name = "flags",
 	.arg3type = ARG_LIST,
 	.arg3list = ARGLIST(recv_flags),
@@ -101,7 +101,7 @@ struct syscallentry syscall_recvmmsg = {
 	.arg4type = ARG_LIST,
 	.arg4list = ARGLIST(recv_flags),
 	.arg5name = "timeout",
-	.arg5type = ARG_ADDRESS,
+	.arg5type = ARG_TIMESPEC,
 	.flags = NEED_ALARM,
 	.sanitise = sanitise_recv,	// same as recv
 };

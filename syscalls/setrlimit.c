@@ -9,4 +9,5 @@ struct syscallentry syscall_setrlimit = {
 	.arg1name = "resource",
 	.arg1type = ARG_ADDRESS,
 	.arg2name = "rlim",
+	.arg2type = ARG_RLIMIT,
 };

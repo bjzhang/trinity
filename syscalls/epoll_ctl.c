@@ -51,6 +51,7 @@ struct syscallentry syscall_epoll_ctl = {
 	.arg3name = "fd",
 	.arg3type = ARG_FD,
 	.arg4name = "event",
+	.arg4type = ARG_EPOLL_EVENT,
 	.rettype = RET_ZERO_SUCCESS,
 	.flags = NEED_ALARM,
 	.sanitise = sanitise_epoll_ctl,

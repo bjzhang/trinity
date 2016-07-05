@@ -18,7 +18,7 @@ struct syscallentry syscall_timer_settime = {
 	.arg2type = ARG_LIST,
 	.arg2list = ARGLIST(timer_settime_flags),
 	.arg3name = "new_setting",
-	.arg3type = ARG_ADDRESS,
+	.arg3type = ARG_ITIMERSPEC,
 	.arg4name = "old_setting",
-	.arg4type = ARG_ADDRESS,
+	.arg4type = ARG_ITIMERSPEC,
 };

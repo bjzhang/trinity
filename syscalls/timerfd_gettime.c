@@ -9,6 +9,6 @@ struct syscallentry syscall_timerfd_gettime = {
 	.arg1name = "ufd",
 	.arg1type = ARG_FD,
 	.arg2name = "otmr",
-	.arg2type = ARG_ADDRESS,
+	.arg2type = ARG_ITIMERSPEC,
 	.flags = NEED_ALARM,
 };

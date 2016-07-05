@@ -150,6 +150,7 @@ struct syscallentry syscall_sendmsg = {
 	.arg1name = "fd",
 	.arg1type = ARG_SOCKETINFO,
 	.arg2name = "msg",
+	.arg2type = ARG_MSGHDR,
 	.arg3name = "flags",
 	.arg3type = ARG_LIST,
 	.arg3list = ARGLIST(sendflags),

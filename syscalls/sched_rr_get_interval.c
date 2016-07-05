@@ -9,5 +9,5 @@ struct syscallentry syscall_sched_rr_get_interval = {
 	.arg1name = "pid",
 	.arg1type = ARG_PID,
 	.arg2name = "interval",
-	.arg2type = ARG_ADDRESS,
+	.arg2type = ARG_TIMESPEC,
 };

@@ -384,6 +384,69 @@ static unsigned long fill_arg(struct syscallrecord *rec, unsigned int argnum)
 
 	case ARG_ITIMERVAL:
 		return (unsigned long) set_itimerval_arg();
+
+	case ARG_EPOLL_EVENT:
+		return (unsigned long) get_epoll_event(rec, argnum);
+
+	case ARG_STATFS:
+		return (unsigned long) get_statfs();	
+
+	case ARG_STRUCT_IOVEC:
+		return (unsigned long) get_iovec();
+
+	case ARG_TIMESPEC:
+		return (unsigned long) get_timespec();
+
+	case ARG_POLLFD:
+		return (unsigned long) get_pollfd();
+
+	case ARG_ITIMERSPEC:
+		return (unsigned long) get_itimerspec();
+
+	case ARG_SIGEVENT:
+		return (unsigned long) get_sigevent(rec, argnum);
+
+	case ARG_SCHED_PARAM:
+		return (unsigned long) get_sched_param();
+
+	case ARG_SIGACTION:
+		return (unsigned long) get_sigaction(rec, argnum);
+
+	case ARG_TMS:
+		return (unsigned long) get_tms();
+
+	case ARG_UTSNAME:
+		return (unsigned long) get_utsname();
+
+	case ARG_RLIMIT:
+		return (unsigned long) get_rlimit();
+
+	case ARG_RUSAGE:
+		return (unsigned long) get_rusage();
+
+	case ARG_TIMEVAL:
+		return (unsigned long) get_timeval();
+
+	case ARG_TIMEZONE:
+		return (unsigned long) get_timezone();
+
+	case ARG_TIMEX:
+		return (unsigned long) get_timex();
+
+	case ARG_MQ_ATTR:
+		return (unsigned long) get_mq_attr();
+
+	case ARG_MSQID_DS:
+		return (unsigned long) get_msqid_ds();
+
+	case ARG_SEMBUF:
+		return (unsigned long) get_sembuf();
+
+	case ARG_MSGHDR:
+		return (unsigned long) get_msghdr(rec, argnum);
+
+	case ARG_FILE_HANDLE:
+		return (unsigned long) get_file_handle();
 	}
 
 	BUG("unreachable!\n");

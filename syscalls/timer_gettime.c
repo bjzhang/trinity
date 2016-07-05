@@ -8,5 +8,5 @@ struct syscallentry syscall_timer_gettime = {
 	.num_args = 2,
 	.arg1name = "timer_id",
 	.arg2name = "setting",
-	.arg2type = ARG_ADDRESS,
+	.arg2type = ARG_ITIMERSPEC,
 };
