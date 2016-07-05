@@ -22,8 +22,12 @@
 #include "tables.h"
 #include "uid.h"
 #include "utils.h"
+#include "syscall-glibc.h"
 
 #ifdef ARCH_IS_BIARCH
+
+extern int call_glibc_syscalls(int call, struct syscallrecord *rec);
+
 /*
  * This routine does 32 bit syscalls on 64 bit kernel.
  * 32-on-32 will just use syscall() directly from do_syscall() because do32bit flag is biarch only.
@@ -102,9 +106,13 @@ static void __do_syscall(struct syscallrecord *rec)
 			(void)alarm(1);
 
 		if (rec->do32bit == FALSE) {
-			ret = syscall(call, rec->a1, rec->a2, rec->a3, rec->a4, rec->a5, rec->a6);
-		} else {
-			ret = syscall32(call, rec->a1, rec->a2, rec->a3, rec->a4, rec->a5, rec->a6);
+			printf("--- syscall message ---\n");
+			ret = call_glibc_syscalls(call, rec);
+		}
+		else {
+			printf("--- syscall32 message ---\n");
+			printf("------syscall32------\n");
+			ret = call_glibc_syscalls(call, rec);
 		}
 		if (needalarm)
 			(void)alarm(0);
