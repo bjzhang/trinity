@@ -106,11 +106,9 @@ static void __do_syscall(struct syscallrecord *rec)
 			(void)alarm(1);
 
 		if (rec->do32bit == FALSE) {
-			printf("--- syscall message ---\n");
 			ret = call_glibc_syscalls(call, rec);
 		}
 		else {
-			printf("--- syscall32 message ---\n");
 			printf("------syscall32------\n");
 			ret = call_glibc_syscalls(call, rec);
 		}

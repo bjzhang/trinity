@@ -8,14 +8,23 @@
 
 #define BUFSIZE 1024	// decoded syscall args are fprintf'd directly, this is for everything else.
 
-char ANSI_RED[] = "[1;31m";
-char ANSI_GREEN[] = "[1;32m";
-char ANSI_YELLOW[] = "[1;33m";
-char ANSI_BLUE[] = "[1;34m";
-char ANSI_MAGENTA[] = "[1;35m";
-char ANSI_CYAN[] = "[1;36m";
-char ANSI_WHITE[] = "[1;37m";
-char ANSI_RESET[] = "[0m";
+//char ANSI_RED[] = "[1;31m";
+//char ANSI_GREEN[] = "[1;32m";
+//char ANSI_YELLOW[] = "[1;33m";
+//char ANSI_BLUE[] = "[1;34m";
+//char ANSI_MAGENTA[] = "[1;35m";
+//char ANSI_CYAN[] = "[1;36m";
+//char ANSI_WHITE[] = "[1;37m";
+//char ANSI_RESET[] = "[0m";
+
+char ANSI_RED[] = "";
+char ANSI_GREEN[] = "";
+char ANSI_YELLOW[] = "";
+char ANSI_BLUE[] = "";
+char ANSI_MAGENTA[] = "";
+char ANSI_CYAN[] = "";
+char ANSI_WHITE[] = "";
+char ANSI_RESET[] = "";
 
 void strip_ansi(char *ansibuf)
 {

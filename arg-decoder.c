@@ -20,7 +20,7 @@ static char * decode_argtype(char *sptr, unsigned long reg, enum argtype type)
 	case ARG_PID:
 	case ARG_FD:
 	case ARG_SOCKETINFO:
-		sptr += sprintf(sptr, "%s%ld", ANSI_RESET, (long) reg);
+		sptr += sprintf(sptr, "%s%u", ANSI_RESET, (long) reg);
 		break;
 	case ARG_MODE_T:
 		sptr += sprintf(sptr, "%s%o", ANSI_RESET, (mode_t) reg);
@@ -56,7 +56,7 @@ static char * decode_argtype(char *sptr, unsigned long reg, enum argtype type)
 			sptr += sprintf(sptr, "0x%lx", reg);
 		} else {
 			/* Print everything else as signed decimal. */
-			sptr += sprintf(sptr, "%ld", (long) reg);
+			sptr += sprintf(sptr, "%u", (long) reg);
 		}
 		sptr += sprintf(sptr, "%s", ANSI_RESET);
 		break;
@@ -132,9 +132,13 @@ static unsigned int render_syscall_prefix(struct syscallrecord *rec, char *buffe
 	syscallnr = rec->nr;
 	entry = get_syscall_entry(syscallnr, rec->do32bit);
 
+#iff 0
 	sptr += sprintf(sptr, "[child%u:%u] [%lu] %s",
 			child->num, pids[child->num], child->op_nr,
 			rec->do32bit == TRUE ? "[32BIT] " : "");
+#else
++	sptr += sprintf(sptr, "- syscall message - [child%u:%u] [%lu] %s", this_child->num, this_child->pid,
+#endif
 
 	sptr += sprintf(sptr, "%s%s(", entry->name, ANSI_RESET);
 
@@ -142,7 +146,7 @@ static unsigned int render_syscall_prefix(struct syscallrecord *rec, char *buffe
 		sptr = render_arg(rec, sptr, i, entry);
 	}
 
-	sptr += sprintf(sptr, "%s) ", ANSI_RESET);
+	sptr += sprintf(sptr, "%s,) ", ANSI_RESET);
 
 	return sptr - bufferstart;
 }
@@ -152,10 +156,10 @@ static unsigned int render_syscall_postfix(struct syscallrecord *rec, char *buff
 	char *sptr = bufferstart;
 
 	if (IS_ERR(rec->retval)) {
-		sptr += sprintf(sptr, "%s= %ld (%s)",
+		sptr += sprintf(sptr, "%s(return message)= %ld (%s)",
 			ANSI_RED, (long) rec->retval, strerror(rec->errno_post));
 	} else {
-		sptr += sprintf(sptr, "%s= ", ANSI_GREEN);
+		sptr += sprintf(sptr, "%s(return message)= ", ANSI_GREEN);
 		if ((unsigned long) rec->retval > 10000)
 			sptr += sprintf(sptr, "0x%lx", rec->retval);
 		else
